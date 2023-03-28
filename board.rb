@@ -19,11 +19,11 @@ class Board
     end 
 
 
-    def []=(pos, val)
+    def []=(pos, piece)
 
         row, col = pos 
 
-        @rows[row][col] = pos
+        @rows[row][col] = piece
 
     end 
 
