@@ -3,7 +3,7 @@ require "byebug"
 
 class Employee
 
-    attr_accessor :name, :title, :salary, :boss, 
+    attr_accessor :name, :title, :salary, :boss
 
 
     def initialize(name, title, salary, boss = nil)
@@ -82,9 +82,12 @@ class Manager < Employee
 end 
 
  ned = Manager.new("Ned", "Founder", 1000000, nil)
-#  darren = Manager.new("Darren", "TA Manager", 78000, ned)
-#  shawna = Employee.new("Shawna", "TA", 12000, darren)
-#  david = Employee.new("David","TA",10000, darren)
+ darren = Manager.new("Darren", "TA Manager", 78000, ned)
+ shawna = Employee.new("Shawna", "TA", 12000, darren)
+ david = Employee.new("David","TA",10000, darren)
 
 
-# ned.total_subsalary
+p ned.total_subsalary
+p darren.total_subsalary
+p ned.bonus(5)
+p darren.bonus(4)
