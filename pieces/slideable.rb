@@ -1,4 +1,3 @@
-
 require_relative "piece.rb"
 require_relative "board.rb"
 
@@ -15,18 +14,12 @@ module Slideable
         DIAGONAL_DIRS
     end
 
-    def moves()
-        row, col = piece.pos
-
-        moves = [
-
-        ]
-
+    def moves
         potential_moves = [] 
         
-        move_dirs.each do |move|                        #rook, #getting from piece logic
+        move_dirs.each do |direction|   #rook, #getting from piece logic
 
-            potential_moves += grow_unblocked_moves_in_dir(move[0], move[1])
+            potential_moves += grow_unblocked_moves_in_dir(direction[0], direction[1])
 
         end 
 
@@ -34,14 +27,13 @@ module Slideable
 `   end `
 
     private 
+
     def move_dirs
         raise "Not implemented"
-
-
     end
 
     def grow_unblocked_moves_in_dir(dx, dy)
-        row, col = piece.pos
+        row, col = self.pos
 
         potential_moves = []
 
@@ -49,23 +41,19 @@ module Slideable
         #is checking if there is a piece there
 
 
-        piece_mov_dirs.each do |direction|                          #coming from piece logic - not figured yet.
 
-            while board.valid_pos?([row + dx, col + dy]) 
-
-                #check if position is ocupied by an ememy piece
-                if    board.empty?([row + dx, col + dy])
-                    potential_moves << [row + dx, col + dy]
-
-                elsif board([row + dx, col + dy]).piece.color != piece.color
-                    potential_moves << [row + dx, col + dy]
-                    break
-                else
-                    break
-                    
-                end
-            end    
-        end 
+        while board.valid_pos?([row + dx, col + dy])    
+            #check if position is ocupied by an ememy piece
+            if board[row + dx, col + dy].empty? #*we haven't written empty yet
+                potential_moves << [row + dx, col + dy]  
+            elsif board[row + dx, col + dy].piece.color != self.color #this might be self color?
+                potential_moves << [row + dx, col + dy]
+                break
+            else
+                break
+            end
+            #move on to the next tile
+        end    
 
         potential_moves
         
