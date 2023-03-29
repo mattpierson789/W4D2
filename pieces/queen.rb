@@ -6,9 +6,8 @@ class Rook
     end
 
     def move_dirs
-       queen_dirs += horizontal_dirs + diagonal_dirs
+        horizontal_dirs + diagonal_dirs
 
-       queen_dirs
 
     end 
 

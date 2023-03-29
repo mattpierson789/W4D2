@@ -67,12 +67,10 @@ module Slideable
             end    
         end 
 
+        potential_moves
         
     end
 
-        # potential_moves << [row + dx, col + dy]
-
-        # potential_moves
 
 
 end 
