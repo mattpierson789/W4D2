@@ -1,6 +1,3 @@
-require_relative "piece.rb"
-require_relative "board.rb"
-
 module Slideable 
 
     HORIZONTAL_DIRS = [[1,0], [-1,0], [0,1], [0,-1]]
@@ -24,7 +21,7 @@ module Slideable
         end 
 
         potential_moves
-`   end `
+    end 
 
     private 
 

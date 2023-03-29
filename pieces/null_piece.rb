@@ -1,12 +1,10 @@
-require_relative "piece.rb"
+require "singleton"
 
 class NullPiece < Piece
     include Singleton
 
-    def initialize(color, board, pos)
+    def initialize
         @color = nil
-        @board = board
-        @pos = pos
     end
 
     def moves
@@ -14,7 +12,7 @@ class NullPiece < Piece
     end
 
     def symbol
-        " "
+        " " #maybe put a different symbol
     end
 
 end

@@ -1,3 +1,5 @@
+require "colorize"
+
 class Piece
     attr_reader :color, :board, :pos
 
@@ -9,7 +11,7 @@ class Piece
 
 
     def to_s
-
+        symbol
     end 
 
 
@@ -26,9 +28,9 @@ class Piece
 
     end 
 
-    def Symbol          #uppercase?
+    # def symbol
 
-    end
+    # end
 
     private
 
