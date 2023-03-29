@@ -40,19 +40,18 @@ module Slideable
         #board.valid_pos is checking inbounds and board.empty 
         #is checking if there is a piece there
 
-
-
-        while board.valid_pos?([row + dx, col + dy])    
-            #check if position is ocupied by an ememy piece
-            if board[row + dx, col + dy].empty? #*we haven't written empty yet
-                potential_moves << [row + dx, col + dy]  
-            elsif board[row + dx, col + dy].piece.color != self.color #this might be self color?
-                potential_moves << [row + dx, col + dy]
+        limit = self.pos
+        new_pos = [ row + dx, col + dy]
+        while board.valid_pos?(new_pos)    
+            if board[new_pos].empty? #*we haven't written empty yet
+                potential_moves << [new_pos]  
+            elsif board[new_pos].piece.color != self.color #this might be self color?
+                potential_moves << [new_pos]
                 break
             else
                 break
             end
-            #move on to the next tile
+            limit = new_pos
         end    
 
         potential_moves
