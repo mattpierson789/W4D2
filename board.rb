@@ -3,6 +3,8 @@ require_relative "pieces.rb"
 
 class Board 
 
+    attr_reader :rows
+
     def initialize
         @rows = Array.new(8) { Array.new(8, NullPiece.instance)}  #we do nullpiece.instance instead of .new because it is a singleton
         populate

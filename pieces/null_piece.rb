@@ -12,7 +12,7 @@ class NullPiece < Piece
     end
 
     def symbol
-        " " #maybe put a different symbol
+        "  " #maybe put a different symbol
     end
 
 end
