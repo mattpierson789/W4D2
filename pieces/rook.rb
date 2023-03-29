@@ -2,7 +2,9 @@ class Rook
     include Slideable
 
     def symbol
-        ':R'.colorize(color)
+        '♖'.colorize(color)
+        
+       
     end
 
     def move_dirs
